@@ -1,0 +1,105 @@
+<div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" style="min-height: 500px;">
+                        <div class="card-body wizard-content">
+
+                            <form class="tab-wizard wizard-circle clearfix">
+                                <!-- Step 1 -->
+                                <h6>Blocks</h6>
+
+                                <div>
+
+                                    <p style="font-weight: 500;text-align: center;">Select Blocks For Block Cycle </p>
+                                    <div class="example">
+
+                                        <div class="input-group">
+                                            <input type="text" name="testDate" [(ngModel)]="testDate" class="form-control complex-colorpicker" id="datepicker-autoclose" #box placeholder="DD/MM/YYYY">
+                                            <span class="input-group-addon">
+                                                <i class="icon-calender"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="height: 250px;overflow: auto">
+                                        <div>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <ul class="search-listing table-hover contact-list" *ngFor="let i of blocksArray; let Index = index">
+                                                        <li>
+                                                            <label [attr.for]="'box-' + Index">
+                                                                {{i.name}}
+                                                            </label>
+                                                            <input style="float: right;" class="checkbox" [attr.id]="'box-' + Index" type="checkbox" (click)="createSelection(Index)">
+
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br/>
+                                <br/>
+                                <!-- Step 2 -->
+
+
+                                <h6>Dates</h6>
+                                <div>
+
+
+                                    <div style="display: inline">
+                                        <span style="font-weight: 500">Name</span>
+                                        <span class="rightDate">Start Date</span>
+                                    </div>
+                                    <div style="height: 250px;overflow: auto">
+                                        <div>
+                                            <div class="card">
+                                                <div class="card-body" style="padding: 0px">
+                                                    <ul class="search-listing table-hover contact-list" *ngFor="let i of checkedArray; let Index = index">
+                                                        <li>
+                                                            {{i.name}}
+                                                            <div class="input-group" style="width:170px;bottom: 8px;float: right;">
+                                                                <input type="text" name="i" [(ngModel)]="i.assignDate" class="form-control complex-colorpicker" [attr.id]="'example' + Index"
+                                                                    placeholder="DD/MM/YYYY" (click)="selectDate(Index)">
+                                                                <span class="input-group-addon">
+                                                                    <i class="icon-calender"></i>
+                                                                </span>
+                                                            </div>
+                                                           
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- Step 3 -->
+                                <h6>Confirm</h6>
+                                <div>
+
+                                    <p class="center-bold">Create New Block Cycle</p>
+                                    <p class="center-p">This will create a new block cycle for {{checkedArray.length}} blocks</p>
+                                    <p class="center-p">Are you sure you want to create a new block cycle?</p>
+
+                                </div>
+
+                            </form>
+
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
+    </div>
+</div>

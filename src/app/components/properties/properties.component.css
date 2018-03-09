@@ -1,0 +1,14 @@
+.centerARow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divHeight {
+    height : 500px;
+}
+
+.displayClass {
+    display: none !important;
+    color: red;
+}

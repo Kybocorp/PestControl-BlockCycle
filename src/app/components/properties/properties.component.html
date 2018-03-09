@@ -1,0 +1,180 @@
+<!-- <div class="row">
+    <div class="col-12">
+
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row" class="centerARow">
+                    <div style="width: 213px;">
+                        <h4 class="card-title">Properties</h4>
+                        <h6 class="card-subtitle">Properties on the block cycle</h6>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="controls">
+
+                            <select [(ngModel)]="dropDownValue" (ngModelChange)="dataChanged($event)" name="select" id="select" required class="form-control">
+                                <option *ngFor="let i of blocksArray" name="i" [ngValue]="i">{{i.name}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input #myInput placeholder="Search" class="form-control" [(ngModel)]="searchQuery" />
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list footable" data-page-size="5">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Pest</th>
+                                <th>Comments</th>
+                                <th>Next Inspection</th>
+                                <th>Inspections</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr   class="footable-even" *ngFor="let i of propertyInfo| search:searchQuery;">
+                                <td>{{i.address}}</td>
+                                <td></td>
+
+                                <td>{{i.comments}}</td>
+
+                                <td>
+                                    {{i.nextInspectionDate | date: 'dd/MM/yyyy'}}
+                                </td>
+
+
+                                <td>
+                                    {{i.inspections}}
+                                </td>
+                                <td>
+                                    {{i.statusId}}
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <label class="form-inline">Show
+                                    <select id="demo-show-entries" class="form-control input-sm">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select> entries </label>
+                                <td colspan="7">
+                                    <div class="text-right">
+                                        <ul class="pagination"> </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="row" class="centerARow">
+            <div style="width: 213px;">
+                <h4 class="card-title">Properties</h4>
+                <h6 class="card-subtitle">Properties on the block cycle</h6>
+            </div>
+
+
+            <div class="form-group">
+                <div class="controls">
+
+                    <select [(ngModel)]="dropDownValue" (ngModelChange)="dataChanged($event)" name="select" id="select" required class="form-control">
+                        <option *ngFor="let i of blocksArray" name="i" [ngValue]="i">{{i.name}}</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input #myInput placeholder="Search" class="form-control" [(ngModel)]="searchQuery" (ngModelChange)="searchQueryMethod()"/>
+            </div>
+        </div>
+
+
+        <table id="demo-foo-pagination" class="table m-b-0 toggle-arrow-tiny footable" data-page-size="5">
+            <thead>
+                <tr>
+
+
+                    <th>Property</th>
+                    <th>Pest</th>
+                    <th>Comments</th>
+                    <th>Next Inspection</th>
+                    <th>Inspections</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                <tr class="footable-even" *ngFor="let i of propertyInfo| search:searchQuery; let Index = index">
+                    <td>{{i.address}}</td>
+                    <td></td>
+
+                    <td>{{i.comments}}</td>
+
+                    <td>
+                        <!-- {{i.nextInspectionDate | date: 'dd/MM/yyyy'}} -->
+
+                        <div class="input-group" style="width:170px">
+                            <input type="text" name="i" [(ngModel)]="i.assignDate" class="form-control complex-colorpicker" [attr.id]="'example' + Index"
+                                placeholder="DD/MM/YYYY" (click)="dateInputSelection(Index)">
+                            <span class="input-group-addon">
+                                <i class="icon-calender"></i>
+                            </span>
+                        </div>
+                    </td>
+
+
+                    <td>
+                        {{i.inspections}}
+                    </td>
+                    <td>
+                        {{i.statusId}}
+                    </td>
+
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr>
+
+                    <!-- <label class="form-inline">Show
+                        <select [(ngModel)]="pop" (ngModelChange)="dropDownSize($event)" id="demo-show-entries" class="form-control input-sm">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select> entries </label> -->
+
+                    <td colspan="5">
+                        <div class="text-right">
+                            <ul class="pagination pagination-split m-t-30"> </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
