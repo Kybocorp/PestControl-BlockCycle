@@ -111,7 +111,7 @@
         </div>
 
 
-        <table id="demo-foo-pagination" class="table m-b-0 toggle-arrow-tiny footable" data-page-size="5">
+        <table id="demo-foo-pagination" class="table m-b-0 toggle-arrow-tiny footable" data-page-size="10">
             <thead>
                 <tr>
 
@@ -120,8 +120,10 @@
                     <th>Pest</th>
                     <th>Comments</th>
                     <th>Next Inspection</th>
+                    <th>AM / PM</th>
                     <th>Inspections</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -135,17 +137,20 @@
                     <td>{{i.comments}}</td>
 
                     <td>
-                        <!-- {{i.nextInspectionDate | date: 'dd/MM/yyyy'}} -->
+                        {{i.nextInspectionDate | date: 'dd/MM/yyyy'}}
 
-                        <div class="input-group" style="width:170px">
+                        <!-- <div class="input-group" style="width:170px">
                             <input type="text" name="i" [(ngModel)]="i.assignDate" class="form-control complex-colorpicker" [attr.id]="'example' + Index"
                                 placeholder="DD/MM/YYYY" (click)="dateInputSelection(Index)">
                             <span class="input-group-addon">
                                 <i class="icon-calender"></i>
                             </span>
-                        </div>
+                        </div> -->
                     </td>
 
+                    <td>
+                        {{i.amPm}}
+                    </td>
 
                     <td>
                         {{i.inspections}}
@@ -153,9 +158,94 @@
                     <td>
                         {{i.statusId}}
                     </td>
-
+                    <td>
+                        <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Edit</button>
+                    </td>
                 </tr>
+                <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <h4 class="modal-title" id="myModalLabel" style="position: relative;right: 39%;">Add Blocks</h4>
+  
+                        </div>
+                        <form class="form">
+                            <div class="modal-body">
 
+                            <!-- Am / Pm -->
+                            <div class="form-group row">
+                                <label for="editPropertyAmPm" class="col-2 col-form-label">Slot</label>
+                                <div class="col-10">
+                                    <select class="custom-select col-12" id="editPropertyAmPm">
+                                        <option selected="">Choose...</option>
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Next Inspection Date -->
+                            <div class="form-group row">
+                                <label for="editPropertyNextInspectionDate" class="col-2 col-form-label">Next Inspection Date</label>
+                                <div class="col-10">
+                                    <select class="custom-select col-12" id="editPropertyNextInspectionDate">
+                                        <option selected="">Choose...</option>
+                                        <option value="01/06/2018">01/06/2018</option>
+                                        <option value="15/06/2018">15/06/2018</option>
+                                        <option value="29/06/2018">29/06/2018</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="form-group row">
+                                <label for="editPropertyStatus" class="col-2 col-form-label">Status</label>
+                                <div class="col-10">
+                                    <select class="custom-select col-12" id="editPropertyStatus">
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Comments -->
+                            <div class="form-group">
+                                <label>Comments</label>
+                                <textarea class="form-control" rows="5" id="editPropertyComments"></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <!-- Am / Pm -->
+                                <div class="controls">
+                                <!-- <select [(ngModel)]="dropDownValue" name="select" id="select" required class="form-control">
+                                    <option *ngFor="let i of blocksList" name="i" [ngValue]="i">{{i.name}}</option>
+                                </select> -->
+
+                                <!-- <div>
+                                    <mat-form-field>
+                                        <mat-select [(ngModel)]="dropDownValue" name="select" id="select" required class="form-control">
+                                            <mat-option *ngFor="let i of blocksList" name="i" [value]="i">
+                                                {{ i.name }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div> -->
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal" (click)="save()">Save</button>
+                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
             </tbody>
             <tfoot>
                 <tr>

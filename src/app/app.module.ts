@@ -18,6 +18,8 @@ import { BlocksComponent } from './components/blocks/blocks.component';
 import { PropertiesComponent } from './components/properties/properties.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { MatSelectModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpModule,
     AppRoutingModule,
     ReactiveFormsModule
+    //BrowserAnimationsModule,
+    //MatButtonModule,
+    //MatCheckboxModule
     //HttpClientModule
     //RouterModule.forRoot(routes)
   ],

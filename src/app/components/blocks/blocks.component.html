@@ -30,15 +30,15 @@
                 <td (click)="goToPage(i)">{{i.name}}</td>
 
                 <td>{{i.address}}</td>
-                <!--  <td>{{i.startDate | date: 'dd/MM/yyyy'}}</td> -->
+                 <td>{{i.startDate | date: 'dd/MM/yyyy'}}</td>
 
-                <div class="input-group" style="width:170px;position: relative;top: 20px;">
+                <!-- <div class="input-group" style="width:170px;position: relative;top: 20px;">
                   <input type="text" name="i" [(ngModel)]="i.assignDate" class="form-control complex-colorpicker" [attr.id]="'example' + Index"
                     placeholder="DD/MM/YYYY" (click)="temp(Index)">
                   <span class="input-group-addon">
                     <i class="icon-calender"></i>
                   </span>
-                </div>
+                </div> -->
 
                 <td class="text-right">
                   {{i.propertiesComplete}}/{{i.properties}}
