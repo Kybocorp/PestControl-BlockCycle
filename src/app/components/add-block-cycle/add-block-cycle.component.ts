@@ -112,7 +112,7 @@ export class AddBlockCycleComponent implements OnInit {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
         let options = new RequestOptions({ headers: headers });
-        let url = 'http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/BlockCycle/Add';
+        let url = 'https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/BlockCycle/Add';
         this.http.post(url, body, options)
 
             .subscribe(val => {
@@ -152,7 +152,7 @@ export class AddBlockCycleComponent implements OnInit {
 
     componentInitData() {
         // for (let i = 0; i < this.blockCycles.length; ++i) {
-        //     this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/Get/' + this.blockCycles[i].blockCycleId)
+        //     this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/Get/' + this.blockCycles[i].blockCycleId)
         //         .map(res => res.json())
         //         .subscribe(data => {
         //             data.map((data) => {
@@ -163,7 +163,7 @@ export class AddBlockCycleComponent implements OnInit {
         // }
 
 
-        this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/GetUnassigned/0')
+        this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/GetUnassigned/0')
             .map(res => res.json())
             .subscribe(data => {
                 data.map((data) => {

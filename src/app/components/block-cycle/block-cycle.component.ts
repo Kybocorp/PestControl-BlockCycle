@@ -43,7 +43,7 @@ export class BlockCycleComponent implements OnInit {
     }, 1000);
 
 
-    this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/BlockCycle/Get').map(res => res.json()).subscribe(data => {
+    this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/BlockCycle/Get').map(res => res.json()).subscribe(data => {
       this.blockCycles = data;
 
     });

@@ -64,7 +64,7 @@ export class BlocksComponent implements OnInit {
         this.blockCycleId = +params['blockCycleId'] || -1;
 
 
-        this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/Get/' + this.blockCycleId)
+        this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/Get/' + this.blockCycleId)
           .map(res => res.json())
           .subscribe(data => {
             this.blocksArray = data;
@@ -107,7 +107,7 @@ export class BlocksComponent implements OnInit {
           });
 
 
-        this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/GetUnassigned/' + this.blockCycleId)
+        this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/GetUnassigned/' + this.blockCycleId)
           .map(res => res.json())
           .subscribe(data => {
             this.blocksList = data;
@@ -127,13 +127,13 @@ export class BlocksComponent implements OnInit {
     //====================================================
     //    CLIENT ASK US TO CHANGE BUT THIS IS STABLE CODE
     //====================================================
-    // this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/BlockCycle/Get')
+    // this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/BlockCycle/Get')
 
     //   .subscribe(data => {
     //     this.blockCycles = data.json();
     //     for (let i = 0; i < this.blockCycles.length; ++i) {
 
-    //       this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/Get/' + this.blockCycles[i].blockCycleId)
+    //       this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/Get/' + this.blockCycles[i].blockCycleId)
     //         .map(res => res.json())
     //         .subscribe(data => {
     //           data.map((data) => {
@@ -175,7 +175,7 @@ export class BlocksComponent implements OnInit {
   save() {
 
     let date = $("#exampl2").val();
-    let url = "http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/AddBlockToBlockCycle";
+    let url = "https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/AddBlockToBlockCycle";
     let headers = new Headers();
     headers.append('Content-Type', 'application/json')
     let options = new RequestOptions({ headers: headers });

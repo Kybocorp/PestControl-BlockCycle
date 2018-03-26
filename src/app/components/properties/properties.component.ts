@@ -49,7 +49,7 @@ export class PropertiesComponent implements OnInit {
         this.blockCycleId = +params['blockCycleId'] || 0;
         this.blockId = +params['blockId'] || 0;
 
-        this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Properties/GetByBlockId/' + this.blockId + '&' + this.blockCycleId).subscribe(data => {
+        this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Properties/GetByBlockId/' + this.blockId + '&' + this.blockCycleId).subscribe(data => {
           this.propertyInfo = data.json();
 
           setTimeout(() => {
@@ -91,7 +91,7 @@ export class PropertiesComponent implements OnInit {
 
         });
 
-        this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Blocks/Get/' + this.blockCycleId)
+        this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Blocks/Get/' + this.blockCycleId)
           .map(res => res.json())
           .subscribe(data => {
 
@@ -139,7 +139,7 @@ export class PropertiesComponent implements OnInit {
   dataChanged(event) {
 
 
-    this.http.get('http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Properties/GetByBlockId/' + event.blockId + '&' + this.blockCycleId)
+    this.http.get('https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Properties/GetByBlockId/' + event.blockId + '&' + this.blockCycleId)
       .map(data => data.json())
       .subscribe(data => {
         this.propertyInfo = data;
@@ -226,13 +226,38 @@ export class PropertiesComponent implements OnInit {
   // THIS FUNCTION WILL SEND THE PUT REQUEST
   // ==============================================================
 
+  save() {
+
+    // let headers = new Headers();
+    // headers.append('Content-Type', 'application/json');
+    // let options = new RequestOptions({ headers: headers });
+
+    // let url = "https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Properties/UpdateBlockCycleProperty";
+
+    // let dd = date.slice(0, 2);
+    // let mm = date.slice(3, 5);
+    // let yy = date.slice(6, 10);
+    // let newDate = "" + mm + "/" + dd + "/" + yy;
+
+    // this.propertyInfo[this.selectedIndex].nextInspectionDate = newDate;
+
+    // let body = JSON.stringify(this.propertyInfo[this.selectedIndex]);
+   
+
+    // this.http.put(url, body, options)
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     //console.log(data);
+    //   })
+
+  }
 
   sendDate(date) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
 
-    let url = "http://kybodev01.northeurope.cloudapp.azure.com/PestInspections/api/Properties/UpdateBlockCycleProperty";
+    let url = "https://mobileframe.southwark.gov.uk/PestInspectionsTest/api/Properties/UpdateBlockCycleProperty";
 
     let dd = date.slice(0, 2);
     let mm = date.slice(3, 5);
